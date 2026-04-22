@@ -1,0 +1,11 @@
+name: finagent-nfs-storageclass
+storageClass:
+  name: finagent-nfs
+  provisioner: nfs.csi.k8s.io
+  reclaimPolicy: Retain
+  volumeBindingMode: Immediate
+  allowVolumeExpansion: true
+  mountOptions: []
+  parameters:
+    server: 65.2.10.53
+    share: /data/my-storage
