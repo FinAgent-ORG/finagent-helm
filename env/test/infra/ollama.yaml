@@ -8,9 +8,9 @@
 # spec:
 #   project: default
 #   source:
-#     repoURL: https://git.example.com/your-org/finagent-gitops.git
-#     targetRevision: HEAD
-#     path: finagent/infra/ollama
+#     repoURL: https://github.com/FinAgent-ORG/finagent-helm.git
+#     targetRevision: main
+#     path: infra/ollama
 #     helm:
 #       valueFiles:
 #         - values.yaml

@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://git.example.com/your-org/finagent-gitops.git
-    targetRevision: HEAD
-    path: finagent/infra/finagent-gateway
+    repoURL: https://github.com/FinAgent-ORG/finagent-helm.git
+    targetRevision: main
+    path: infra/finagent-gateway
     helm:
       valueFiles:
         - values.yaml
