@@ -1,5 +1,5 @@
 name: ollama
-namespace: finagent-dbs-test
+namespace: finagent-dbs
 image:
   repository: ollama/ollama
   tag: "0.6.5"

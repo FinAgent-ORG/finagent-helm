@@ -17,7 +17,7 @@ spec:
         - values-test.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: finagent-apps-test
+    namespace: finagent-apps
   syncPolicy:
     automated:
       prune: true

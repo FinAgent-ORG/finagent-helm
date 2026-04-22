@@ -1,4 +1,4 @@
-namespace: finagent-dbs-test
+namespace: finagent-dbs
 storage:
   className: finagent-nfs-test
 model:

@@ -1,11 +1,11 @@
-namespace: finagent-apps-test
+namespace: finagent-apps
 replicaCount: 1
 image:
   repository: your-registry/finagent-expense-service
   tag: test
 config:
-  MYSQL_HOST: mysql-server.finagent-dbs-test.svc.cluster.local
-  MYSQL_ADMIN_HOST: mysql-server.finagent-dbs-test.svc.cluster.local
+  MYSQL_HOST: mysql-server.finagent-dbs.svc.cluster.local
+  MYSQL_ADMIN_HOST: mysql-server.finagent-dbs.svc.cluster.local
   ALLOWED_ORIGINS: https://test.finagent.example.com
 route:
   hostnames:

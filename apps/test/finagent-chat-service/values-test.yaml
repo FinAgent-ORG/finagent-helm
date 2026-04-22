@@ -1,11 +1,11 @@
-namespace: finagent-apps-test
+namespace: finagent-apps
 replicaCount: 1
 image:
   repository: your-registry/finagent-chat-service
   tag: test
 config:
-  EXPENSE_SERVICE_BASE_URL: http://expense-service.finagent-apps-test.svc.cluster.local:8002
-  OLLAMA_BASE_URL: http://ollama.finagent-dbs-test.svc.cluster.local:11434
+  EXPENSE_SERVICE_BASE_URL: http://expense-service.finagent-apps.svc.cluster.local:8002
+  OLLAMA_BASE_URL: http://ollama.finagent-dbs.svc.cluster.local:11434
   ALLOWED_ORIGINS: https://test.finagent.example.com
 route:
   hostnames:
