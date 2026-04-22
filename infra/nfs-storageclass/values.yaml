@@ -7,5 +7,5 @@ storageClass:
   allowVolumeExpansion: true
   mountOptions: []
   parameters:
-    server: 65.2.10.53
+    server: 10.0.0.56
     share: /data/my-storage
