@@ -1,11 +1,12 @@
 namespace: finagent-dbs
 appsNamespace: finagent-apps
 storage:
-  size: 100Gi
+  className: finagent-nfs
+  size: 3Gi
 resources:
   requests:
-    cpu: 500m
-    memory: 1Gi
+    cpu: "100m"
+    memory: "256Mi"
   limits:
-    cpu: "2"
-    memory: 4Gi
+    cpu: "250m"
+    memory: "512Mi"

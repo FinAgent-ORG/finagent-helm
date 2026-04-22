@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/FinAgent-ORG/finagent-helm.git
-    targetRevision: HEAD
+    targetRevision: main
     path: infra/mysql
     helm:
       valueFiles:

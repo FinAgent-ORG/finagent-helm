@@ -58,7 +58,9 @@ spec:
     - metadata:
         name: mysql-data
       spec:
-        accessModes: ["ReadWriteOnce"]
+        accessModes:
+          - {{ .Values.storage.accessMode | quote }}
+        storageClassName: {{ .Values.storage.className | quote }}
         resources:
           requests:
             storage: {{ .Values.storage.size }}

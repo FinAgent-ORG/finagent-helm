@@ -1,5 +1,6 @@
 namespace: finagent-dbs
 storage:
+  className: finagent-nfs-prod
   size: 100Gi
 model:
   pullEnabled: true

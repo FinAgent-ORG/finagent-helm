@@ -8,7 +8,9 @@ image:
 service:
   port: 3306
 storage:
-  size: 20Gi
+  accessMode: ReadWriteOnce
+  className: finagent-nfs
+  size: 3Gi
 config:
   MYSQL_DATABASE_PLACEHOLDER: bootstrap
   MYSQL_CHARSET: utf8mb4
@@ -23,8 +25,8 @@ secret:
   EXPENSE_MYSQL_PASSWORD: change-me-expense-db-password
 resources:
   requests:
-    cpu: 250m
-    memory: 512Mi
+    cpu: 100m
+    memory: 256Mi
   limits:
-    cpu: "1"
-    memory: 1Gi
+    cpu: "200m"
+    memory: 512Mi

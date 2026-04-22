@@ -1,4 +1,5 @@
 namespace: finagent-dbs
 appsNamespace: finagent-apps
 storage:
-  size: 20Gi
+  className: finagent-nfs
+  size: 3Gi
