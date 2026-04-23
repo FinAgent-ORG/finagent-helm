@@ -25,78 +25,26 @@ loki:
     limits_config:
       retention_period: 168h
 
-  deploymentMode: Distributed
-
   global:
     storageClass: finagent-nfs
 
-  # components (keep same)
   backend:
-    enabled: true
-    replicas: 1
-    persistence:
-      enabled: true
-      storageClass: finagent-nfs
-      accessModes: [ReadWriteMany]
-      size: 10Gi
+    replicas: 0
 
   write:
-    enabled: true
-    replicas: 1
-    persistence:
-      enabled: true
-      storageClass: finagent-nfs
-      accessModes: [ReadWriteMany]
-      size: 10Gi
+    replicas: 0
 
   read:
-    enabled: true
-    replicas: 1
-    persistence:
-      enabled: true
-      storageClass: finagent-nfs
-      accessModes: [ReadWriteMany]
-      size: 10Gi
-
-  ingester:
-    enabled: true
-    replicas: 1
-    persistence:
-      enabled: true
-      storageClass: finagent-nfs
-      accessModes: [ReadWriteMany]
-      size: 20Gi
-
-  compactor:
-    enabled: true
-    persistence:
-      enabled: true
-      storageClass: finagent-nfs
-      accessModes: [ReadWriteMany]
-      size: 10Gi
-
-  indexGateway:
-    enabled: true
-    persistence:
-      enabled: true
-      storageClass: finagent-nfs
-      accessModes: [ReadWriteMany]
-      size: 10Gi
-
-  distributor:
-    enabled: true
-
-  querier:
-    enabled: true
-
-  queryFrontend:
-    enabled: true
-
-  queryScheduler:
-    enabled: true
+    replicas: 0
 
   singleBinary:
-    enabled: false
+    replicas: 1
+    persistence:
+      enabled: true
+      storageClass: finagent-nfs
+      accessModes:
+        - ReadWriteMany
+      size: 20Gi
 
   gateway:
     enabled: false
