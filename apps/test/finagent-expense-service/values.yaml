@@ -2,7 +2,7 @@ name: finagent-expense-service
 namespace: finagent-apps
 replicaCount: 1
 image:
-  repository: your-registry/finagent-expense-service
+  repository: ghcr.io/finagent-org/finagent-expense
   tag: latest
   pullPolicy: IfNotPresent
 serviceAccount:
