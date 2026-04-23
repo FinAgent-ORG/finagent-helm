@@ -2,3 +2,4 @@ namespaces:
   apps: finagent-apps
   dbs: finagent-dbs
   gateway: finagent-gateway-ns
+  monitoring: monitoring
