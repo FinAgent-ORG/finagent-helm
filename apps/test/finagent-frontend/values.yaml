@@ -20,7 +20,21 @@ route:
   pathPrefix: /
 config:
   APP_MODE: test
-  API_BASE_HINT: /api
+nginx:
+  resolver: kube-dns.kube-system.svc.cluster.local
+  upstreams:
+    auth:
+      host: auth-service.finagent-apps.svc.cluster.local
+      port: 8001
+    expense:
+      host: expense-service.finagent-apps.svc.cluster.local
+      port: 8002
+    insights:
+      host: insights-service.finagent-apps.svc.cluster.local
+      port: 8003
+    chat:
+      host: chat-service.finagent-apps.svc.cluster.local
+      port: 8004
 resources:
   requests:
     cpu: 50m

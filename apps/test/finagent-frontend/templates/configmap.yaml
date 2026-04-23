@@ -7,4 +7,58 @@ metadata:
     {{- include "finagent-frontend.labels" . | nindent 4 }}
 data:
   APP_MODE: {{ .Values.config.APP_MODE | quote }}
-  API_BASE_HINT: {{ .Values.config.API_BASE_HINT | quote }}
+  default.conf.template: |
+    server {
+        listen 8080;
+        server_name _;
+
+        root /usr/share/nginx/html;
+        index index.html;
+
+        resolver {{ .Values.nginx.resolver }} valid=10s ipv6=off;
+
+        location /api/v1/auth/ {
+            set $auth_upstream http://{{ .Values.nginx.upstreams.auth.host }}:{{ .Values.nginx.upstreams.auth.port }};
+            proxy_pass $auth_upstream/api/v1/auth/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /api/v1/expenses/ {
+            set $expense_upstream http://{{ .Values.nginx.upstreams.expense.host }}:{{ .Values.nginx.upstreams.expense.port }};
+            proxy_pass $expense_upstream/api/v1/expenses/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /api/v1/insights/ {
+            set $insights_upstream http://{{ .Values.nginx.upstreams.insights.host }}:{{ .Values.nginx.upstreams.insights.port }};
+            proxy_pass $insights_upstream/api/v1/insights/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /api/v1/chat/ {
+            set $chat_upstream http://{{ .Values.nginx.upstreams.chat.host }}:{{ .Values.nginx.upstreams.chat.port }};
+            proxy_pass $chat_upstream/api/v1/chat/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
+
+        location = /health {
+            return 200 "ok";
+            add_header Content-Type text/plain;
+        }
+    }

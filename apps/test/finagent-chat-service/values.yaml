@@ -12,7 +12,7 @@ service:
   type: ClusterIP
   port: 8004
 route:
-  enabled: true
+  enabled: false
   gatewayName: finagent-gateway
   gatewayNamespace: finagent-gateway-ns
   hostnames:

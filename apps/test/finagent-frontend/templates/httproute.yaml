@@ -11,10 +11,10 @@ spec:
   parentRefs:
     - name: {{ .Values.route.gatewayName }}
       namespace: {{ .Values.route.gatewayNamespace }}
-  # hostnames:
-  #   {{- range .Values.route.hostnames }}
-  #   - {{ . | quote }}
-  #   {{- end }}
+  hostnames:
+    {{- range .Values.route.hostnames }}
+    - {{ . | quote }}
+    {{- end }}
   rules:
     - matches:
         - path:

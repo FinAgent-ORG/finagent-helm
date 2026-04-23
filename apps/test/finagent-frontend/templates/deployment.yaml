@@ -26,6 +26,10 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.name }}-config
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/templates/default.conf.template
+              subPath: default.conf.template
           readinessProbe:
             httpGet:
               path: /
@@ -46,3 +50,10 @@ spec:
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: {{ .Values.name }}-config
+            items:
+              - key: default.conf.template
+                path: default.conf.template
