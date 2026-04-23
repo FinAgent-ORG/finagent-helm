@@ -5,6 +5,10 @@ metadata:
   namespace: {{ .Values.namespace }}
   labels:
     {{- include "finagent-expense-service.labels" . | nindent 4 }}
+  {{- if .Values.initDbJob.enabled }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
