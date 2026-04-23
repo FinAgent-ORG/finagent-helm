@@ -2,7 +2,7 @@ name: finagent-insights-service
 namespace: finagent-apps
 replicaCount: 1
 image:
-  repository: your-registry/finagent-insights-service
+  repository: ghcr.io/finagent-org/finagent-insights
   tag: latest
   pullPolicy: IfNotPresent
 serviceAccount:

@@ -1,7 +1,7 @@
 namespace: finagent-apps
 replicaCount: 2
 image:
-  repository: your-registry/finagent-insights-service
+  repository: ghcr.io/finagent-org/finagent-insights
   tag: prod
 config:
   APP_ENV: production
