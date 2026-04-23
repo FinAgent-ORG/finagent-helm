@@ -3,7 +3,6 @@ storage:
   className: finagent-nfs-test
 model:
   pullEnabled: true
-  name: llama3.1
+  name: llama3.2:1b
   names:
-    - llama3.1
-    - llava
+    - llama3.2:1b

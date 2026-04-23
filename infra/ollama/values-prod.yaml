@@ -4,10 +4,9 @@ storage:
   size: 100Gi
 model:
   pullEnabled: true
-  name: llama3.1
+  name: llama3.2:1b
   names:
-    - llama3.1
-    - llava
+    - llama3.2:1b
 resources:
   requests:
     cpu: "1"

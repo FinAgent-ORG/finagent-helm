@@ -25,7 +25,7 @@ config:
   APP_PORT: "8003"
   EXPENSE_SERVICE_BASE_URL: http://expense-service.finagent-apps.svc.cluster.local:8002
   OLLAMA_BASE_URL: http://ollama.finagent-dbs.svc.cluster.local:11434
-  OLLAMA_MODEL: llama3.1
+  OLLAMA_MODEL: llama3.2:1b
   OLLAMA_TEMPERATURE: "0"
   JWT_ALGORITHM: HS256
   ALLOWED_ORIGINS: https://finagent.example.com

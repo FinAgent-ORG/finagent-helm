@@ -30,8 +30,9 @@ config:
   MYSQL_ADMIN_PORT: "3306"
   MYSQL_ADMIN_DATABASE: mysql
   OLLAMA_BASE_URL: http://ollama.finagent-dbs.svc.cluster.local:11434
-  OLLAMA_MODEL: llama3.1
-  OLLAMA_VISION_MODEL: llava
+  OLLAMA_MODEL: llama3.2:1b
+  OLLAMA_VISION_MODEL: ""
+  OLLAMA_IMAGE_EXTRACTION_ENABLED: "false"
   JWT_ALGORITHM: HS256
   ALLOWED_ORIGINS: https://finagent.example.com
   RATE_LIMIT_REQUESTS: "120"

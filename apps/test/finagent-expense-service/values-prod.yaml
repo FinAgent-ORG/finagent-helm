@@ -8,8 +8,9 @@ config:
   MYSQL_HOST: mysql-server.finagent-dbs.svc.cluster.local
   MYSQL_ADMIN_HOST: mysql-server.finagent-dbs.svc.cluster.local
   OLLAMA_BASE_URL: http://ollama.finagent-dbs.svc.cluster.local:11434
-  OLLAMA_MODEL: llama3.1
-  OLLAMA_VISION_MODEL: llava
+  OLLAMA_MODEL: llama3.2:1b
+  OLLAMA_VISION_MODEL: ""
+  OLLAMA_IMAGE_EXTRACTION_ENABLED: "false"
   ALLOWED_ORIGINS: https://finagent.example.com
 route:
   hostnames:
