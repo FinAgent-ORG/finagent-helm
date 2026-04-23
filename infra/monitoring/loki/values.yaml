@@ -104,8 +104,17 @@ loki:
   lokiCanary:
     enabled: false
 
-  monitoring:
+  test:
     enabled: false
 
-  grafanaAgent:
-    enabled: false
+  monitoring:
+    dashboards:
+      enabled: false
+    rules:
+      enabled: false
+    serviceMonitor:
+      enabled: false
+    selfMonitoring:
+      enabled: false
+      grafanaAgent:
+        installOperator: false
