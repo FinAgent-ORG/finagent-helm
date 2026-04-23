@@ -9,15 +9,11 @@ loki:
       configs:
         - from: "2024-04-01"
           store: tsdb
-          object_store: filesystem
+          object_store: s3
           schema: v13
           index:
             prefix: loki_index_
             period: 24h
-
-    storage_config:
-      filesystem:
-        directory: /var/loki/chunks
 
     compactor:
       working_directory: /var/loki/compactor
@@ -25,29 +21,51 @@ loki:
     limits_config:
       retention_period: 168h
 
+    storage:
+      type: s3
+      bucketNames:
+        chunks: chunks
+        ruler: ruler
+        admin: admin
+
   global:
     storageClass: finagent-nfs
 
   backend:
-    replicas: 0
-
-  write:
-    replicas: 0
-
-  read:
-    replicas: 0
-
-  singleBinary:
     replicas: 1
     persistence:
-      enabled: true
+      volumeClaimsEnabled: true
       storageClass: finagent-nfs
-      accessModes:
-        - ReadWriteMany
-      size: 20Gi
+      size: 10Gi
+
+  write:
+    replicas: 1
+    persistence:
+      volumeClaimsEnabled: true
+      storageClass: finagent-nfs
+      size: 10Gi
+
+  read:
+    replicas: 1
+    persistence:
+      volumeClaimsEnabled: true
+      storageClass: finagent-nfs
+      size: 10Gi
+
+  singleBinary:
+    replicas: 0
 
   gateway:
-    enabled: false
+    enabled: true
+    service:
+      type: ClusterIP
+      port: 80
+
+  minio:
+    enabled: true
+    persistence:
+      size: 10Gi
+      storageClass: finagent-nfs
 
   lokiCanary:
     enabled: false
