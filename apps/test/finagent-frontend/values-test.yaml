@@ -4,5 +4,4 @@ image:
   repository: ghcr.io/finagent-org/finagent-frontend
   tag: 50c6509
 route:
-  hostnames:
-    - test.finagent.example.com
+  hostnames: []
