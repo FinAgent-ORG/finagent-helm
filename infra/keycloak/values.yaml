@@ -34,7 +34,7 @@ keycloak:
 
   extraEnvVars:
     - name: KC_HOSTNAME
-      value: https://keyclaok.myfinagent.online
+      value: https://keycloak.myfinagent.online
     - name: KC_HOSTNAME_STRICT
       value: "true"
     - name: KC_HTTP_ENABLED
@@ -63,7 +63,7 @@ httpRoute:
   enabled: true
   name: keycloak-route
   namespace: keycloak
-  hostname: keyclaok.myfinagent.online
+  hostname: keycloak.myfinagent.online
   gateway:
     name: finagent-gateway
     namespace: finagent-gateway-ns
