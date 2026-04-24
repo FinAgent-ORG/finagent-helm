@@ -2,7 +2,7 @@ namespace: finagent-apps
 replicaCount: 1
 image:
   repository: ghcr.io/finagent-org/finagent-frontend
-  tag: df6883d
+  tag: f5bcfdf
 route:
   hostnames:
     - myfinagent.online
