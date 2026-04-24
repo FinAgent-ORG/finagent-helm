@@ -1,5 +1,8 @@
+global:
+  defaultStorageClass: finagent-nfs
+
 keycloak:
-  production: false
+  production: true
   proxyHeaders: xforwarded
   httpEnabled: true
   cache:
@@ -30,8 +33,6 @@ keycloak:
   resourcesPreset: small
 
   extraEnvVars:
-    - name: KC_DB
-      value: dev-file
     - name: KC_HOSTNAME
       value: https://keyclaok.myfinagent.online
     - name: KC_HOSTNAME_STRICT
@@ -42,7 +43,17 @@ keycloak:
       value: xforwarded
 
   postgresql:
-    enabled: false
+    enabled: true
+    auth:
+      postgresPassword: "ChangeMe-Postgres-Admin-Password-Immediately"
+      username: bn_keycloak
+      password: "ChangeMe-Keycloak-DB-Password-Immediately"
+      database: bitnami_keycloak
+    primary:
+      persistence:
+        enabled: true
+        storageClass: finagent-nfs
+        size: 8Gi
 
 httpRoute:
   enabled: true
