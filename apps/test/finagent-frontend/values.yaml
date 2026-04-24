@@ -18,6 +18,9 @@ route:
   hostnames:
     - finagent.example.com
   pathPrefix: /
+  timeouts:
+    request: 120s
+    backendRequest: 110s
 config:
   APP_MODE: test
   PORT: "8080"

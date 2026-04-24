@@ -6,3 +6,6 @@ image:
 route:
   hostnames:
     - myfinagent.online
+  timeouts:
+    request: 120s
+    backendRequest: 110s

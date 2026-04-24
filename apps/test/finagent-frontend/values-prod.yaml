@@ -9,6 +9,9 @@ config:
 route:
   hostnames:
     - finagent.example.com
+  timeouts:
+    request: 120s
+    backendRequest: 110s
 resources:
   requests:
     cpu: 100m

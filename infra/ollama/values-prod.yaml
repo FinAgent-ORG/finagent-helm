@@ -1,7 +1,7 @@
 namespace: finagent-dbs
 storage:
   className: finagent-nfs-prod
-  size: 100Gi
+  size: 20Gi
 model:
   pullEnabled: true
   name: llama3.2:3b
@@ -9,7 +9,7 @@ model:
     - llama3.2:3b
 resources:
   requests:
-    cpu: "2"
+    cpu: "3"
     memory: 4Gi
   limits:
     cpu: "6"
