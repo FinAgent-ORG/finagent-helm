@@ -2,7 +2,7 @@ namespace: finagent-apps
 replicaCount: 1
 image:
   repository: ghcr.io/finagent-org/finagent-auth
-  tag: "41abc74"
+  tag: "d5b8121"
 config:
   MYSQL_HOST: mysql-server.finagent-dbs.svc.cluster.local
   MYSQL_ADMIN_HOST: mysql-server.finagent-dbs.svc.cluster.local
