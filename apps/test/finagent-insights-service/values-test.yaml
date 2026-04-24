@@ -2,7 +2,7 @@ namespace: finagent-apps
 replicaCount: 1
 image:
   repository: ghcr.io/finagent-org/finagent-insights
-  tag: 2f2addc
+  tag: 648f4cf
 config:
   EXPENSE_SERVICE_BASE_URL: http://expense-service.finagent-apps.svc.cluster.local:8002
   OLLAMA_BASE_URL: http://ollama.finagent-dbs.svc.cluster.local:11434
