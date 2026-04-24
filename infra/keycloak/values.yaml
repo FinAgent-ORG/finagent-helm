@@ -1,0 +1,63 @@
+keycloak:
+  production: true
+  proxyHeaders: xforwarded
+  httpEnabled: true
+  cache:
+    enabled: false
+
+  auth:
+    adminUser: admin
+    adminPassword: "ChangeMe-Admin-Password-Immediately"
+
+  service:
+    type: ClusterIP
+    http:
+      enabled: true
+
+  ingress:
+    enabled: false
+
+  tls:
+    enabled: false
+
+  replicaCount: 1
+
+  resourcesPreset: small
+
+  extraEnvVars:
+    - name: KC_HOSTNAME
+      value: https://keyclaok.myfinagent.online
+    - name: KC_HOSTNAME_STRICT
+      value: "true"
+    - name: KC_HTTP_ENABLED
+      value: "true"
+    - name: KC_PROXY_HEADERS
+      value: xforwarded
+
+  postgresql:
+    enabled: true
+    auth:
+      postgresPassword: "ChangeMe-Postgres-Admin-Password-Immediately"
+      username: bn_keycloak
+      password: "ChangeMe-Keycloak-DB-Password-Immediately"
+      database: bitnami_keycloak
+    primary:
+      persistence:
+        enabled: true
+        storageClass: finagent-nfs
+        size: 8Gi
+
+httpRoute:
+  enabled: true
+  name: keycloak-route
+  namespace: finagent-apps
+  hostname: keyclaok.myfinagent.online
+  gateway:
+    name: finagent-gateway
+    namespace: finagent-gateway-ns
+  path:
+    type: PathPrefix
+    value: /
+  backend:
+    name: keycloak
+    port: 80
