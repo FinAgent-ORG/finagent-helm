@@ -2,7 +2,7 @@ namespace: finagent-apps-prod
 replicaCount: 2
 image:
   repository: ghcr.io/finagent-org/finagent-frontend
-  tag: prod
+  tag: "5807966"
 config:
   APP_MODE: production
   SESSION_COOKIE_SECURE: "true"

@@ -2,7 +2,7 @@ namespace: finagent-apps-prod
 replicaCount: 2
 image:
   repository: ghcr.io/finagent-org/finagent-chat
-  tag: prod
+  tag: e3c7fe8
 config:
   APP_ENV: production
   EXPENSE_SERVICE_BASE_URL: http://expense-service.finagent-apps-prod.svc.cluster.local:8002
