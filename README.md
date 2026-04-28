@@ -392,16 +392,16 @@ Evidence:
 
 ### 14.1 Runtime Secrets in Kubernetes
 
-Application runtime secrets are stored as `SealedSecret` manifests rather than plain Kubernetes `Secret` YAML in Git.
+Application runtime secrets are stored as plain Kubernetes `Secret` manifests in Git.
 
 Examples:
 - [`apps/test/finagent-auth-service/templates/sealed-secret.yaml`](./apps/test/finagent-auth-service/templates/sealed-secret.yaml)
 - similar files exist for auth, chat, expense, insights, and mysql charts
 
 This gives:
-- encrypted secret storage in Git
-- cluster-side secret materialization
-- safe GitOps compatibility
+- direct Kubernetes secret manifests for GitOps
+- stable secret names consumed by the workloads
+- compatibility with Argo CD sync ordering
 
 ### 14.2 GitHub Actions Secrets
 
@@ -495,7 +495,6 @@ kubectl get pvc -n monitoring
 ### 16.4 Secret Checks
 
 ```bash
-kubectl get sealedsecrets -A
 kubectl get secrets -n finagent-apps
 kubectl get secrets -n finagent-dbs
 ```
@@ -548,5 +547,5 @@ getent hosts ollama.finagent-dbs.svc.cluster.local
 5. Confirm Argo CD syncs that Git change into the test cluster.
 6. Confirm release workflows promote SHA-tagged images into semantic versions.
 7. Confirm `env/prod` pull requests to `main` pass Kyverno policy validation.
-8. Confirm SealedSecrets are reconciled into runtime Kubernetes secrets.
+8. Confirm the Kubernetes secrets exist with the expected names in each namespace.
 9. Confirm domains and dashboards are reachable through the platform entry path.
