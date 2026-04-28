@@ -27,7 +27,7 @@ spec:
         - name: init-db
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["python", "init_db.py"]
+          command: ["python", "app/init_db.py"]
           envFrom:
             - configMapRef:
                 name: {{ .Values.name }}-config
