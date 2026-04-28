@@ -5,7 +5,7 @@ image:
   tag: "651f8fd"
 route:
   hostnames:
-    - myfinagent.online
+    - nexaflow.site
   timeouts:
     request: 120s
     backendRequest: 110s
